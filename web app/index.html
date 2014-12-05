@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Piggy LED</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="stylesheet" href="static/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="static/css/bootstrap-slider.min.css" type="text/css">
+    <link rel="stylesheet" href="static/css/bootstrap-colorselector.css" type="text/css">
+    <link rel="stylesheet" href="static/css/bootstrap-toggle.css" type="text/css">
+    <link rel="stylesheet" href="static/css/main.css" type="text/css"/>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron col-sm-12">
+        <h1>Piggy LED :D</h1>
+        <p>Control the shit out of LEDs</p>
+        <div class="form-group">
+            <input type=password id='token' class="form-control form-token" placeholder="Enter Token">
+        </div>
+        <div class="form-group">
+            Loop:<br/><input type=checkbox id='looptoggle' value="loop" data-toggle="toggle"> <button type="button" class="btn btn-default" id="loopbutton">Turn Off</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="col-sm-3">
+
+                <div class="form-group">
+                    <h2>KnightRider</h2>
+                </div>
+                <div class="form-group">
+                    Width (in px)<br/>
+                    <input type=range id='kr_width'>
+                </div>
+
+
+                <div class="form-group">
+                    Delay (in ms)<br/>
+                    <input type=range id='kr_delay'>
+                </div>
+
+
+                <div class="form-group">
+                    Cycles<br/>
+                    <input type=range id='kr_cycles'>
+                </div>
+
+                <div class="form-group">
+                    Color
+                    <select id="kr_color">
+                        <option value='FFFFFF' data-color='#FFFFFF'>FFFFFF</option>
+                        <option value='C0C0C0' data-color='#C0C0C0'>C0C0C0</option>
+                        <option value='808080' data-color='#808080'>808080</option>
+                        <option value='FF0000' data-color='#FF0000' selected>FF0000</option>
+                        <option value='800000' data-color='#800000'>800000</option>
+                        <option value='FFFF00' data-color='#FFFF00'>FFFF00</option>
+                        <option value='808000' data-color='#808000'>808000</option>
+                        <option value='00FF00' data-color='#00FF00'>00FF00</option>
+                        <option value='008000' data-color='#008000'>008000</option>
+                        <option value='00FFFF' data-color='#00FFFF'>00FFFF</option>
+                        <option value='008080' data-color='#008080'>008080</option>
+                        <option value='0000FF' data-color='#0000FF'>0000FF</option>
+                        <option value='000080' data-color='#000080'>000080</option>
+                        <option value='FF00FF' data-color='#FF00FF'>FF00FF</option>
+                        <option value='800080' data-color='#800080'>800080</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-default btn-block" id="kr_button">KnightRider</button>
+                </div>
+            </div>
+
+
+
+            <div class="col-sm-3">
+
+
+                <div class="form-group">
+                    <h2>ColorWipe</h2>
+                </div>
+                <div class="form-group">
+                    Delay (in ms)<br/>
+                    <input type=range id='cw_delay'>
+                </div>
+
+
+                <div class="form-group">
+                    Cycles<br/>
+                    <input type=range id='cw_cycles'>
+                </div>
+
+                <div class="form-group">
+                    Color
+                    <select id="cw_color">
+                        <option value='FFFFFF' data-color='#FFFFFF'>FFFFFF</option>
+                        <option value='C0C0C0' data-color='#C0C0C0'>C0C0C0</option>
+                        <option value='808080' data-color='#808080'>808080</option>
+                        <option value='FF0000' data-color='#FF0000'>FF0000</option>
+                        <option value='800000' data-color='#800000'>800000</option>
+                        <option value='FFFF00' data-color='#FFFF00' selected>FFFF00</option>
+                        <option value='808000' data-color='#808000'>808000</option>
+                        <option value='00FF00' data-color='#00FF00'>00FF00</option>
+                        <option value='008000' data-color='#008000'>008000</option>
+                        <option value='00FFFF' data-color='#00FFFF'>00FFFF</option>
+                        <option value='008080' data-color='#008080'>008080</option>
+                        <option value='0000FF' data-color='#0000FF'>0000FF</option>
+                        <option value='000080' data-color='#000080'>000080</option>
+                        <option value='FF00FF' data-color='#FF00FF'>FF00FF</option>
+                        <option value='800080' data-color='#800080'>800080</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-default btn-block" id="cw_button">ColorWipe</button>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="col-sm-3">
+
+
+                <div class="form-group">
+                    <h2>RainbowFade</h2>
+                </div>
+                <div class="form-group">
+                    Delay (in ms)<br/>
+                    <input type=range id='rf_delay'>
+                </div>
+
+                <div class="form-group">
+                    Cycles<br/>
+                    <input type=range id='rf_cycles'>
+                </div>
+
+                <div class="form-group">
+                    Brightness (in %)<br/>
+                    <input type=range id='rf_brightness'>
+                </div>
+
+                <div class="form-group">
+                    <button type="button" class="btn btn-default btn-block" id="rf_button">RainbowFade</button>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="col-sm-3">
+
+
+                <div class="form-group">
+                    <h2>RainbowPattern</h2>
+                </div>
+                <div class="form-group">
+                    Delay (in ms)<br/>
+                    <input type=range id='rp_delay'>
+                </div>
+
+
+                <div class="form-group">
+                    Cycles<br/>
+                    <input type=range id='rp_cycles'>
+                </div>
+
+                <div class="form-group">
+                    Density<br/>
+                    <input type=range id='rp_density'>
+                </div>
+
+
+                <div class="form-group">
+                    Brightness (in %)<br/>
+                    <input type=range id='rp_brightness'>
+                </div>
+
+                <div class="form-group">
+                    <button type="button" class="btn btn-default btn-block" id="rp_button">RainbowPattern</button>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="col-sm-3">
+
+                <div class="form-group">
+                    <h2>SparkleColors</h2>
+                </div>
+                <div class="form-group">
+                    Density (in Promille)<br/>
+                    <input type=range id='sc_density'>
+                </div>
+
+
+                <div class="form-group">
+                    Delay (in ms)<br/>
+                    <input type=range id='sc_delay'>
+                </div>
+
+
+                <div class="form-group">
+                    Cycles<br/>
+                    <input type=range id='sc_cycles'>
+                </div>
+
+                <div class="form-group">
+                    Rainbow Colors:<br/>
+                    <input type=checkbox id='sc_rainbow' data-toggle="toggle">
+                </div>
+
+                <div class="form-group">
+                    Color
+                    <select id="sc_color">
+                        <option value='FFFFFF' data-color='#FFFFFF' selected>FFFFFF</option>
+                        <option value='C0C0C0' data-color='#C0C0C0'>C0C0C0</option>
+                        <option value='808080' data-color='#808080'>808080</option>
+                        <option value='FF0000' data-color='#FF0000'>FF0000</option>
+                        <option value='800000' data-color='#800000'>800000</option>
+                        <option value='FFFF00' data-color='#FFFF00'>FFFF00</option>
+                        <option value='808000' data-color='#808000'>808000</option>
+                        <option value='00FF00' data-color='#00FF00'>00FF00</option>
+                        <option value='008000' data-color='#008000'>008000</option>
+                        <option value='00FFFF' data-color='#00FFFF'>00FFFF</option>
+                        <option value='008080' data-color='#008080'>008080</option>
+                        <option value='0000FF' data-color='#0000FF'>0000FF</option>
+                        <option value='000080' data-color='#000080'>000080</option>
+                        <option value='FF00FF' data-color='#FF00FF'>FF00FF</option>
+                        <option value='800080' data-color='#800080'>800080</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-default btn-block" id="sc_button">SparkleColor</button>
+                </div>
+            </div>
+          </div>
+        </div>
+
+
+</div>
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/bootstrap-slider.min.js"></script>
+<script src="static/js/bootstrap-colorselector.js"></script>
+<script src="static/js/bootstrap-toggle.js"></script>
+<script src="static/js/sprintf.min.js"></script>
+<script src="static/js/requests.js"></script>
+
+</html>
